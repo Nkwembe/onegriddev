@@ -1,4 +1,7 @@
-<?php session_start();?>
+<?php 
+    session_start();
+    $config = require_once("config.php");
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,7 +24,7 @@
             <?php if (isset($_SESSION['access_token'])) { ?>
                 <ul class="nav nav-pills d-flex align-items-center">
                     <li class="nav-item">
-                        <a href=" http://1-grid.healingprotocols.co.za/auth/logout.php" class="nav-link">Logout</a>
+                        <a href="<?=$config['host']?>/auth/logout.php" class="nav-link">Logout</a>
                     </li>
                 </ul>
             <?php } ?>

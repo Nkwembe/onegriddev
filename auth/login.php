@@ -1,22 +1,23 @@
 <?php 
   include_once("../layout/header.php");
+
   if (isset($_SESSION['access_token'])) {
-      header("Location:  http://1-grid.healingprotocols.co.za/");
+      header("Location:"  . $config['host']);
   }
+  //current security code is: tresor
   $secret_code = isset($_GET["secret_code"]) ? $_GET["secret_code"] : '';
-  
-  // const CLIENT = "c8a827ff69d53682e696";
-  const CLIENT = "bf56b82110ed92bfc649";
+
   $wrong_code = false;
+
   if (!empty($secret_code) && $secret_code === 'tresor') {
-      $authorizeUrl = "https://github.com/login/oauth/authorize?client_id=".CLIENT;
-      header("Location: $authorizeUrl");
+    header("Location: https://github.com/login/oauth/authorize?client_id=". $config['client_id']);
   } else {
     if(isset($_GET["secret_code"])) {
       $wrong_code = true;
     }
   }
 ?>
+
 <form class="row row-cols-lg-auto needs-validation" novalidate>
     <div class="col-6 has-validation">
         <label class="visually-hidden" for="inlineFormInputSecretCode">

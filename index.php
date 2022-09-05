@@ -1,8 +1,7 @@
 <?php 
   include_once("layout/header.php");
-
   if (!isset($_SESSION['access_token'])) {
-    header("Location:  http://1-grid.healingprotocols.co.za/auth/login.php");
+    header("Location:  " . $config['host'] . "/auth/login.php");
   }
 ?>
 <table class="table table-hover tableIssues" id="tableIssues">
