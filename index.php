@@ -65,13 +65,13 @@
               <option value="High">High</option>
             </select>
           </div>
-          <div class="col-md-4">
+          <!-- <div class="col-md-4">
             <label for="inputRepository" class="form-label">Repository</label>
             <select id="inputRepository" name="repo" class="form-select" required>
               <option value="GitIntegration" selected>GitIntegration</option>
-              <option value="onegrid">TresorOneGrid</option>
+              <option value="onegriddev">TresorOneGrid</option>
             </select>
-          </div>
+          </div> -->
           <div class="col-12">
             <button type="submit" class="btn btn-primary">
               Submit

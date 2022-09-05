@@ -1,26 +1,21 @@
 <?php 
   include_once("../layout/header.php");
   if (isset($_SESSION['access_token'])) {
-      header("Location: http://githubissues.local/");
+      header("Location: http://onegriddev.local/");
   }
   $secret_code = isset($_GET["secret_code"]) ? $_GET["secret_code"] : '';
   
   const CLIENT = "c8a827ff69d53682e696";
-  const LOGIN_URL = "https://api.github.com/Nkwembe/onegridtresor";
   $wrong_code = false;
   /*
   
   */
   if (!empty($secret_code) && $secret_code === 'tresor') {
-      $authorizeUrl = "https://github.com/login/oauth/authorize?client_id=".CLIENT;
-      header("Location: $authorizeUrl");
-  } else {
-    if(isset($_GET["secret_code"])) {
-      $wrong_code = true;
-    }
+    $authorizeUrl = "https://github.com/login/oauth/authorize?client_id=".CLIENT;
+    header("Location: $authorizeUrl");
   }
 ?>
-<form class="row row-cols-lg-auto needs-validation <?=$wrong_code ? 'validated': ''?>" novalidate>
+<form class="row row-cols-lg-auto needs-validation" novalidate>
     <div class="col-6 has-validation">
         <label class="visually-hidden" for="inlineFormInputSecretCode">
             Enter Secret code to sign in

@@ -7,15 +7,15 @@
     class GithubIssueMapper {
 
         public $model;
-        public $url = "https://api.github.com/repos/nkwembe/onegrid/issues";
-        public $repository = "onegrid";
+        public $url = "https://api.github.com/repos/nkwembe/onegriddev/issues";
+        public $repository = "onegriddev";
         public $token;
         public $data;
 
         public function __construct() {
            if (isset($_SESSION['access_token'])) {
             //set token only when user is authenticated
-            $this->token = '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';
+            $this->token = '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';
            }
         }
 
@@ -52,10 +52,6 @@
         }
 
         public function getUrl() {
-            //only two repos are allowed for now for testing purpose
-            if ($this->repository !== "onegrid") {
-                $this->url = "https://api.github.com/repos/1-grid/$this->repository/issues";
-            }
             return $this->url;
         }
 

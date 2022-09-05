@@ -26,7 +26,6 @@ $(document).ready(function () {
         data['C'] = $("#inputClient").val();
         data['P'] = $("#inputPriority").val();
         data['T'] = $("#inputType").val();
-        data['repo'] = $("#inputRepository").val();
         if (data.find(d => d.toString().length === 0)) {
             handleSubmitbtn(issueForm, false);
             console.log('all fields are required');
@@ -76,9 +75,12 @@ function getGithubIssues() {
                 let issues = JSON.parse(response);
                 Array.from(issues).forEach(function (issue, i) {
                     i++;
-                    html += "<tr><td>" + i + "</td>" + "<td>" + issue.title + "</td>";
-                    html += "<td>" + issue.body + "</td>" + "<td>" + issue.author_association + "</td>";
-                    html += "<td>" + issue.state + "</td></tr>";
+                    html += "<tr>";
+                    html += "<td>" + i + "</td>" + "<td>" + issue.title + "</td>";
+                    html += "<td>" + parser.parseFromString(issue.body, "text/html") + "</td>";
+                    html += "<td>" + issue.author_association + "</td>";
+                    html += "<td>" + issue.state + "</td>";
+                    html += "</tr>";
                 });
             }
             console.log(html === '');

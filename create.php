@@ -10,7 +10,7 @@
     //check at least if the required title is posted
     if (isset($_POST['title']) && strlen($_POST['title'])) {
         $mapper = new GithubIssueMapper();
-        $mapper->setRepository($_POST['repo']);
+        //$mapper->setRepository($_POST['repo']);
         $mapper->setPostData($_POST);
         $data = $mapper->createGithubIssue();
         echo json_encode($data);//send back json response

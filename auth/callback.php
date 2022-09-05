@@ -7,10 +7,10 @@
     if (empty($code)) {
         header("Location: http://onegriddev.local/auth/login.php");
     }
-    // const CLIENT = "c8a827ff69d53682e696";
-    // const SECRET = "555d7084e28f98876663b045983720bab658fef1";
-    const CLIENT = "bf56b82110ed92bfc649";
-    const SECRET = "7c10b630520202c13ee98a8551b19b3fb34adb54";
+    const CLIENT = "c8a827ff69d53682e696";
+    const SECRET = "f6a8b3884847759c194a6fd545ff9c4b97896200";
+    // const CLIENT = "bf56b82110ed92bfc649";
+    // const SECRET = "7c10b630520202c13ee98a8551b19b3fb34adb54";
     //since code is temporary
     $post_access_token_url = "https://github.com/login/oauth/access_token";
     $ch = curl_init();
