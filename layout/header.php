@@ -20,7 +20,7 @@
             </a>
             <?php if (isset($_SESSION['access_token'])) { ?>
                 <ul class="nav nav-pills d-flex align-items-center">
-                    <li class="nav-item"><a href="http://githubissues.local/auth/logout.php" class="nav-link">Logout</a></li>
+                    <li class="nav-item"><a href="http://onegriddev.local/auth/logout.php" class="nav-link">Logout</a></li>
                 </ul>
             <?php } ?>
         </header>    

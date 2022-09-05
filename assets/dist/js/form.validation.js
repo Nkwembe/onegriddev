@@ -80,9 +80,13 @@ function getGithubIssues() {
                     html += "<td>" + issue.body + "</td>" + "<td>" + issue.author_association + "</td>";
                     html += "<td>" + issue.state + "</td></tr>";
                 });
-                $("#tableIssues tbody").html(html);
-                $("#tableIssues").show();
             }
+            console.log(html === '');
+            if (html === '') {
+                html = '<tr class="text-center alert alert-warning"><td colspan="6">No issues created yet</td></tr>';
+            }
+            $("#tableIssues tbody").html(html);
+            $("#tableIssues").show();
         },
         error: function (xhr) {
             console.log('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);

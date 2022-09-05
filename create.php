@@ -2,7 +2,7 @@
     session_start();
 
     if (!isset($_SESSION['access_token'])) {
-        header("Location: http://githubissues.local/auth/login.php");
+        header("Location: http://onegriddev.local/auth/login.php");
     }
 
     require_once("mappers/GithubIssueMapper.php");

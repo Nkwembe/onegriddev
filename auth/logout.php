@@ -4,5 +4,5 @@
     session_unset();
     // destroy the session
     session_destroy();
-    header("Location: http://githubissues.local/auth/login.php");
+    header("Location: http://onegriddev.local/auth/login.php");
 ?>

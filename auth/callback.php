@@ -1,14 +1,16 @@
 <?php
     session_start();
     if (isset($_SESSION['access_token'])) {
-        header("Location: http://githubissues.local/");
+        header("Location: http://onegriddev.local/");
     }
     $code = $_GET['code'];
     if (empty($code)) {
-        header("Location: http://githubissues.local/auth/login.php");
+        header("Location: http://onegriddev.local/auth/login.php");
     }
-    const CLIENT = "c8a827ff69d53682e696";
-    const SECRET = "555d7084e28f98876663b045983720bab658fef1";
+    // const CLIENT = "c8a827ff69d53682e696";
+    // const SECRET = "555d7084e28f98876663b045983720bab658fef1";
+    const CLIENT = "bf56b82110ed92bfc649";
+    const SECRET = "7c10b630520202c13ee98a8551b19b3fb34adb54";
     //since code is temporary
     $post_access_token_url = "https://github.com/login/oauth/access_token";
     $ch = curl_init();
@@ -30,7 +32,7 @@
         //and do not initializes $_SESSION when it failed to start the session
         $_SESSION['access_token'] = $data->access_token;
         $_SESSION['time'] = time();
-        header("Location: http://githubissues.local/index.php");
+        header("Location: http://onegriddev.local/index.php");
     }
     $data = json_decode($response, true);
     $params = '';
@@ -42,5 +44,5 @@
         }
     }
     //redirect back if something is wrong
-    header("Location: http://githubissues.local/auth/login.php".$params);
+    header("Location: http://onegriddev.local/auth/login.php".$params);
 ?>
