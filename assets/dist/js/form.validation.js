@@ -66,7 +66,6 @@ function handleSubmitbtn(form, disabled = true) {
 }
 
 function getGithubIssues() {
-    const parser = new DOMParser();
     $.ajax({
         type: "GET",
         url: 'get_github_issues.php',

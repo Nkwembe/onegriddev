@@ -1,11 +1,12 @@
 <?php 
   include_once("../layout/header.php");
   if (isset($_SESSION['access_token'])) {
-      header("Location: http://onegriddev.local/");
+      header("Location:  http://1-grid.healingprotocols.co.za/");
   }
   $secret_code = isset($_GET["secret_code"]) ? $_GET["secret_code"] : '';
   
-  const CLIENT = "c8a827ff69d53682e696";
+  // const CLIENT = "c8a827ff69d53682e696";
+  const CLIENT = "bf56b82110ed92bfc649";
   $wrong_code = false;
   if (!empty($secret_code) && $secret_code === 'tresor') {
       $authorizeUrl = "https://github.com/login/oauth/authorize?client_id=".CLIENT;

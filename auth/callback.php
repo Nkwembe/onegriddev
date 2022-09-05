@@ -1,16 +1,16 @@
 <?php
     session_start();
     if (isset($_SESSION['access_token'])) {
-        header("Location: http://onegriddev.local/");
+        header("Location: http://1-grid.healingprotocols.co.za/");
     }
     $code = $_GET['code'];
     if (empty($code)) {
-        header("Location: http://onegriddev.local/auth/login.php");
+        header("Location:  http://1-grid.healingprotocols.co.za/auth/login.php");
     }
-    const CLIENT = "c8a827ff69d53682e696";
-    const SECRET = "f6a8b3884847759c194a6fd545ff9c4b97896200";
-    // const CLIENT = "bf56b82110ed92bfc649";
-    // const SECRET = "7c10b630520202c13ee98a8551b19b3fb34adb54";
+    // const CLIENT = "c8a827ff69d53682e696";
+    // const SECRET = "f6a8b3884847759c194a6fd545ff9c4b97896200";
+    const CLIENT = "bf56b82110ed92bfc649";
+    const SECRET = "7c10b630520202c13ee98a8551b19b3fb34adb54";
     //since code is temporary
     $post_access_token_url = "https://github.com/login/oauth/access_token";
     $ch = curl_init();
@@ -32,7 +32,7 @@
         //and do not initializes $_SESSION when it failed to start the session
         $_SESSION['access_token'] = $data->access_token;
         $_SESSION['time'] = time();
-        header("Location: http://onegriddev.local/index.php");
+        header("Location:  http://1-grid.healingprotocols.co.za/index.php");
     }
     $data = json_decode($response, true);
     $params = '';
@@ -44,5 +44,5 @@
         }
     }
     //redirect back if something is wrong
-    header("Location: http://onegriddev.local/auth/login.php".$params);
+    header("Location:  http://1-grid.healingprotocols.co.za/auth/login.php".$params);
 ?>
