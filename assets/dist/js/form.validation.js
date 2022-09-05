@@ -66,6 +66,7 @@ function handleSubmitbtn(form, disabled = true) {
 }
 
 function getGithubIssues() {
+    const parser = new DOMParser();
     $.ajax({
         type: "GET",
         url: 'get_github_issues.php',
@@ -77,15 +78,17 @@ function getGithubIssues() {
                     i++;
                     html += "<tr>";
                     html += "<td>" + i + "</td>" + "<td>" + issue.title + "</td>";
-                    html += "<td>" + parser.parseFromString(issue.body, "text/html") + "</td>";
+                    html += "<td>" + issue.body + "</td>";
+                    html += "<td>" + issue.C + "</td>";
+                    html += "<td>" + issue.P + "</td>";
+                    html += "<td>" + issue.T + "</td>";
                     html += "<td>" + issue.author_association + "</td>";
                     html += "<td>" + issue.state + "</td>";
                     html += "</tr>";
                 });
             }
-            console.log(html === '');
             if (html === '') {
-                html = '<tr class="text-center alert alert-warning"><td colspan="6">No issues created yet</td></tr>';
+                html = '<tr class="text-center alert alert-warning"><td colspan="10">No issues created yet</td></tr>';
             }
             $("#tableIssues tbody").html(html);
             $("#tableIssues").show();

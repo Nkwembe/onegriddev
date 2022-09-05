@@ -7,12 +7,13 @@
   
   const CLIENT = "c8a827ff69d53682e696";
   $wrong_code = false;
-  /*
-  
-  */
   if (!empty($secret_code) && $secret_code === 'tresor') {
-    $authorizeUrl = "https://github.com/login/oauth/authorize?client_id=".CLIENT;
-    header("Location: $authorizeUrl");
+      $authorizeUrl = "https://github.com/login/oauth/authorize?client_id=".CLIENT;
+      header("Location: $authorizeUrl");
+  } else {
+    if(isset($_GET["secret_code"])) {
+      $wrong_code = true;
+    }
   }
 ?>
 <form class="row row-cols-lg-auto needs-validation" novalidate>

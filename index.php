@@ -1,5 +1,6 @@
 <?php 
   include_once("layout/header.php");
+  
   if (!isset($_SESSION['access_token'])) {
     header("Location: http://onegriddev.local/auth/login.php");
   }
@@ -11,9 +12,9 @@
       <th scope="col">Title</th>
       <th scope="col">Description Body</th>
       <th scope="col">Client</th>
-      <!-- <th scope="col">Priority</th>
+      <th scope="col">Priority</th>
       <th scope="col">Type</th>
-      <th scope="col">Assigned to</th> -->
+      <th scope="col">Assigned to</th>
       <th scope="col">Status</th>
     </tr>
   </thead>

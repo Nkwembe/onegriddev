@@ -9,7 +9,6 @@
     require_once("mappers/GithubIssueMapper.php");
 
     $mapper = new GithubIssueMapper();
-    $mapper->setRepository("onegrid");
     $data = $mapper->getGithubIssues();
     if ($data && $data['response_code'] === 200) {
         $data = json_decode($data['response'], true);

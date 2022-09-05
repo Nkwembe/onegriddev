@@ -15,7 +15,7 @@
         public function __construct() {
            if (isset($_SESSION['access_token'])) {
             //set token only when user is authenticated
-            $this->token = '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';
+            $this->token = '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';
            }
         }
 
