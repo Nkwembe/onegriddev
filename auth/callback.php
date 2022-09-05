@@ -1,25 +1,21 @@
 <?php
     session_start();
-
-    $config = require_once("config.php");
-    $domain = $config['host'];
-
     if (isset($_SESSION['access_token'])) {
-        header("Location: $domain");
+        header("Location: http://1-grid.healingprotocols.co.za/");
     }
-
     $code = $_GET['code'];
-
     if (empty($code)) {
-        header("Location:   "  .  $domain  .  "/auth/login.php");
+        header("Location:  http://1-grid.healingprotocols.co.za/auth/login.php");
     }
 
+    const CLIENT = "bf56b82110ed92bfc649";
+    const SECRET = "7c10b630520202c13ee98a8551b19b3fb34adb54";
     //since code is temporary
     $post_access_token_url = "https://github.com/login/oauth/access_token";
     $ch = curl_init();
     $params = array(
-        'client_id' => $config['client_id'],
-        'client_secret' => $config['client_secret'],
+        'client_id' => CLIENT,
+        'client_secret' => SECRET,
         'code' => $code
     );
     curl_setopt($ch, CURLOPT_URL, $post_access_token_url);
@@ -35,7 +31,7 @@
         //and do not initializes $_SESSION when it failed to start the session
         $_SESSION['access_token'] = $data->access_token;
         $_SESSION['time'] = time();
-        header("Location:   "  .  $domain  .  "/index.php");
+        header("Location:  http://1-grid.healingprotocols.co.za/index.php");
     }
     $data = json_decode($response, true);
     $params = '';
@@ -47,5 +43,5 @@
         }
     }
     //redirect back if something is wrong
-    header("Location:   "  .  $domain  .  "/auth/login.php".$params);
+    header("Location:  http://1-grid.healingprotocols.co.za/auth/login.php".$params);
 ?>

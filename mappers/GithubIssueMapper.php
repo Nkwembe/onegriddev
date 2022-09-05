@@ -1,20 +1,16 @@
 <?php
-    
-    require_once('config.php');
-
     class GithubIssueMapper {
 
-        public $url;
+        public $model;
+        public $url = "https://api.github.com/repos/1-grid/GitIntegration/issues";
         public $repository = "1-grid";
         public $token;
         public $data;
 
         public function __construct() {
            if (isset($_SESSION['access_token'])) {
-            //set token only when user is authenticated
-            $this->token = $config['token'];
+            $this->token = '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';
            }
-           $this->url = $config['url'];
         }
 
         public function setRepository($repository) {

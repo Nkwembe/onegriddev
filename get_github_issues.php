@@ -1,8 +1,8 @@
 <?php
     session_start();
-    $config = require_once("config.php");
+
     if (!isset($_SESSION['access_token'])) {
-        header("Location:  " . $config['host'] . "/auth/login.php");
+        header("Location:  http://1-grid.healingprotocols.co.za/auth/login.php");
     }
 
 

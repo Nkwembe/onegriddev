@@ -1,7 +1,8 @@
 <?php 
   include_once("layout/header.php");
+
   if (!isset($_SESSION['access_token'])) {
-    header("Location:  " . $config['host'] . "/auth/login.php");
+    header("Location:  http://1-grid.healingprotocols.co.za/auth/login.php");
   }
 ?>
 <table class="table table-hover tableIssues" id="tableIssues">
@@ -65,13 +66,6 @@
               <option value="High">High</option>
             </select>
           </div>
-          <!-- <div class="col-md-4">
-            <label for="inputRepository" class="form-label">Repository</label>
-            <select id="inputRepository" name="repo" class="form-select" required>
-              <option value="GitIntegration" selected>GitIntegration</option>
-              <option value="onegriddev">TresorOneGrid</option>
-            </select>
-          </div> -->
           <div class="col-12">
             <button type="submit" class="btn btn-primary">
               Submit
