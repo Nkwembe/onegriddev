@@ -1,11 +1,12 @@
 <?php
     session_start();
+    $domain = "http://1-grid.healingprotocols.co.za/";
     if (isset($_SESSION['access_token'])) {
-        header("Location: http://1-grid.healingprotocols.co.za/");
+        header("Location: $domain");
     }
     $code = $_GET['code'];
     if (empty($code)) {
-        header("Location:  http://1-grid.healingprotocols.co.za/auth/login.php");
+        header("Location:   "  .  $domain  .  "auth/login.php");
     }
     // const CLIENT = "c8a827ff69d53682e696";
     // const SECRET = "f6a8b3884847759c194a6fd545ff9c4b97896200";
@@ -32,7 +33,7 @@
         //and do not initializes $_SESSION when it failed to start the session
         $_SESSION['access_token'] = $data->access_token;
         $_SESSION['time'] = time();
-        header("Location:  http://1-grid.healingprotocols.co.za/index.php");
+        header("Location:   "  .  $domain  .  "index.php");
     }
     $data = json_decode($response, true);
     $params = '';
@@ -44,5 +45,5 @@
         }
     }
     //redirect back if something is wrong
-    header("Location:  http://1-grid.healingprotocols.co.za/auth/login.php".$params);
+    header("Location:   "  .  $domain  .  "auth/login.php".$params);
 ?>
